@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="随风飘泊的博客">
 <meta property="og:description" content="Android 源码中的设计模式 面向对象的六大原则1、 单一职责原则　　所谓职责是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。通俗的说，即一个类只负责一项职责，将一组相关性很高的函数、数据封装到一个类中。 2、 开闭原则　　对于扩展是开放的，这意味着模块的行为是可以扩展的。当应用的需求改变时，我们">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T03:04:57.436Z">
+<meta property="og:updated_time" content="2018-12-04T06:01:34.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题-Android">
 <meta name="twitter:description" content="Android 源码中的设计模式 面向对象的六大原则1、 单一职责原则　　所谓职责是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。通俗的说，即一个类只负责一项职责，将一组相关性很高的函数、数据封装到一个类中。 2、 开闭原则　　对于扩展是开放的，这意味着模块的行为是可以扩展的。当应用的需求改变时，我们">
@@ -129,7 +129,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -509,7 +509,7 @@
 <h2 id="State（状态模式）"><a href="#State（状态模式）" class="headerlink" title="State（状态模式）"></a>State（状态模式）</h2><p>行为是由状态来决定的，不同状态下有不同行为。<br>注意：状态模式的行为是平行的、不可替换的，策略模式的行为是彼此独立可相互替换的。<br>体现：不同的状态执行不同的行为，当WIFI开启时，自动扫描周围的接入点，然后以列表的形式展示；当wifi关闭时则清空。</p>
 <h2 id="Command（命令模式）"><a href="#Command（命令模式）" class="headerlink" title="Command（命令模式）"></a>Command（命令模式）</h2><p>我们有很多命令，把它们放在一个下拉菜单中，用户通过先选择菜单再选择具体命令，这就是Command模式。<br>　　本来用户(调用者)是直接调用这些命令的，在菜单上打开文档，就直接指向打开文档的代码，使用Command模式，就是在这两者之间增加一个中间者，将这种直接关系拗断，同时两者之间都隔离,基本没有关系了。 　　 　　<br>显然这样做的好处是符合封装的特性，降低耦合度，有利于代码的健壮性 可维护性 还有复用性。Command是将对行为进行封装的典型模式，Factory是将创建进行封装的模式。<br>android底层逻辑对事件的转发处理就用到了Command模式。</p>
 <h2 id="Iterator（迭代模式）"><a href="#Iterator（迭代模式）" class="headerlink" title="Iterator（迭代模式）"></a>Iterator（迭代模式）</h2><p>提供一种方法顺序访问一个容器对象中的各个元素，而不需要暴露该对象的内部表示。<br>应用：<br>在Java中的Iterator类。<br>Android中的 Cursor。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cursor.moveToFirst();</span><br></pre></td></tr></table></figure></p>
-<h2 id="Composite（组合模式）"><a href="#Composite（组合模式）" class="headerlink" title="Composite（组合模式）"></a>Composite（组合模式）</h2><p>将对象以树形结构组织起来，以达成“部分－整体” 的层次结构，使得客户端对单个对象和组合对象的使用具有一致性。<br>　　Android中View的结构是树形结构，每个ViewGroup包含一系列的View，而ViewGroup本身又是View。这是Android中非常典型的组合模式。 　　 ##1７. Flyweight（共享模式/享元模式）　<br>定义：避免大量拥有相同内容的小类的开销(如耗费内存)，使大家共享一个类(元类)。<br>　　面向对象语言的原则就是一切都是对象，但是如果真正使用起来，有时对象数可能显得很庞大，比如，字处理软件，如果以每个文字都作为一个对象，几千个字，对象数就是几千，无疑耗费内存，那么我们还是要”求同存异”，找出这些对象群的共同点，设计一个元类，封装可以被共享的类，另外，还有一些特性是取决于应用(context)，是不可共享的，这也Flyweight中两个重要概念内部状态intrinsic和外部状态extrinsic之分。<br>说白点，就是先捏一个的原始模型，然后随着不同场合和环境，再产生各具特征的具体模型，很显然，在这里需要产生不同的新对象，所以Flyweight模式中常出现Factory模式。Flyweight的内部状态是用来共享的，Flyweight factory负责维护一个Flyweight pool(模式池)来存放内部状态的对象。<br>Flyweight模式是一个提高程序效率和性能的模式，会大大加快程序的运行速度。应用场合很多：比如你要从一个数据库中读取一系列字符串，这些字符串中有许多是重复的，那么我们可以将这些字符串储存在Flyweight池(pool)中。<br>　　在Android线程通信中，每次获取Message时调Message.obtain()其实就是从消息池中取出可重复使用的消息，避免产生大量的Message对象。<br><a id="more"></a></p>
+<h2 id="Composite（组合模式）"><a href="#Composite（组合模式）" class="headerlink" title="Composite（组合模式）"></a>Composite（组合模式）</h2><p>将对象以树形结构组织起来，以达成“部分－整体” 的层次结构，使得客户端对单个对象和组合对象的使用具有一致性。<br>　　Android中View的结构是树形结构，每个ViewGroup包含一系列的View，而ViewGroup本身又是View。这是Android中非常典型的组合模式。 　　 ##1７. Flyweight（共享模式/享元模式）　<br>定义：避免大量拥有相同内容的小类的开销(如耗费内存)，使大家共享一个类(元类)。<br>　　面向对象语言的原则就是一切都是对象，但是如果真正使用起来，有时对象数可能显得很庞大，比如，字处理软件，如果以每个文字都作为一个对象，几千个字，对象数就是几千，无疑耗费内存，那么我们还是要”求同存异”，找出这些对象群的共同点，设计一个元类，封装可以被共享的类，另外，还有一些特性是取决于应用(context)，是不可共享的，这也Flyweight中两个重要概念内部状态intrinsic和外部状态extrinsic之分。<br>说白点，就是先捏一个的原始模型，然后随着不同场合和环境，再产生各具特征的具体模型，很显然，在这里需要产生不同的新对象，所以Flyweight模式中常出现Factory模式。Flyweight的内部状态是用来共享的，Flyweight factory负责维护一个Flyweight pool(模式池)来存放内部状态的对象。<br>Flyweight模式是一个提高程序效率和性能的模式，会大大加快程序的运行速度。应用场合很多：比如你要从一个数据库中读取一系列字符串，这些字符串中有许多是重复的，那么我们可以将这些字符串储存在Flyweight池(pool)中。<br>　　在Android线程通信中，每次获取Message时调Message.obtain()其实就是从消息池中取出可重复使用的消息，避免产生大量的Message对象。</p>
 
       
     </div>
@@ -668,7 +668,7 @@
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/categories/index.html">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -742,7 +742,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
