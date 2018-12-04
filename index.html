@@ -417,7 +417,7 @@
 <p>大概的意思（原谅我）：<br>activity是独立平等的，用来处理用户操作。几乎所有的activity都是用来和用户交互的，所以activity类会创建了一个窗口，开发者可以通过setContentView(View)的接口把UI放到给窗口上。</p>
 <p>　　Android中的activity全都归属于task管理 。task 是多个 activity 的集合，这些 activity 按照启动顺序排队存入一个栈（即“back stack”）。android默认会为每个App维持一个task来存放该app的所有activity，task的默认name为该app的packagename。</p>
 <p>　　当然我们也可以在AndroidMainfest.xml中申明activity的taskAffinity属性来自定义task，但不建议使用，如果其他app也申明相同的task，它就有可能启动到你的activity，带来各种安全问题（比如拿到你的Intent）。</p>
-<h1 id="Activity的内部调用过程"><a href="#Activity的内部调用过程" class="headerlink" title="Activity的内部调用过程"></a>Activity的内部调用过程</h1><p>　　上面已经说了，系统通过堆栈来管理activity，当一个新的activity开始时，它被放置在堆栈的顶部和成为运行活动，以前的activity始终保持低于它在堆栈，而不会再次到达前台，直到新的活动退出。<br>还是上这张官网的activity_lifecycle图：<br><img src="/images/activity_lifecycle.png"></p>
+<h1 id="Activity的内部调用过程"><a href="#Activity的内部调用过程" class="headerlink" title="Activity的内部调用过程"></a>Activity的内部调用过程</h1><p>　　上面已经说了，系统通过堆栈来管理activity，当一个新的activity开始时，它被放置在堆栈的顶部和成为运行活动，以前的activity始终保持低于它在堆栈，而不会再次到达前台，直到新的活动退出。<br>还是上这张官网的activity_lifecycle图：<br><img src="/images/basic-lifecycle.png"></p>
 
           
         
@@ -989,7 +989,7 @@
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
